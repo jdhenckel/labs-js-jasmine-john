@@ -49,7 +49,7 @@ describe('shield', function() {
     it('shield destroyed on hit', function() {
         shield.beRaised();
         shield.takesHit(9002);
-        expect(shield.energyLevel).toBe(-1);
+        expect(shield.energyLevel).toBe(0);
         expect(shield.isUp).toBe(false);
     })
 

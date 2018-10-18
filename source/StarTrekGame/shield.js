@@ -29,7 +29,7 @@ class Shield {
 
     takesHit(damage) {
         if(this._isUp) {
-            this._energyLevel -= damage;
+            this._energyLevel = Math.max(0, this._energyLevel - damage);
         }
     }
 }
