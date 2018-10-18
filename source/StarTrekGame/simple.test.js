@@ -36,9 +36,6 @@ describe('shield', function() {
 
     it('selects a random subsystem from an array of subsystems', function()
     {
-        // let subsystem = shield.randomSubsystem();
-        // console.log('Subsystem: ' + subsystem);
-        // expect(shield._subSystems).toContain(subsystem);
         expect(shield._subSystems).toContain(shield.randomSubsystem());
     });
 
