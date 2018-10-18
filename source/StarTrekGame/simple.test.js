@@ -40,7 +40,17 @@ describe('shield', function() {
     });
 
     it('shield depletes on hit', function() {
-        shield.takesHit(100);
-        expect(shield.energyLevel).toBe(8901);
+        shield.beRaised();
+        shield.takesHit(1000);
+        expect(shield.energyLevel).toBe(8001);
+        expect(shield.isUp).toBe(true);
     })
+
+    it('shield destroyed on hit', function() {
+        shield.beRaised();
+        shield.takesHit(9002);
+        expect(shield.energyLevel).toBe(-1);
+        expect(shield.isUp).toBe(false);
+    })
+
 });

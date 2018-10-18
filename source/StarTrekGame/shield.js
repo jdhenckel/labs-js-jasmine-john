@@ -7,7 +7,7 @@ class Shield {
     }
 
     get isUp() {
-        return this._isUp;
+        return this._isUp && this._energyLevel > 0;
     }
 
     get energyLevel() {
@@ -28,6 +28,8 @@ class Shield {
     }
 
     takesHit(damage) {
-        this._energyLevel -= damage;
+        if(this._isUp) {
+            this._energyLevel -= damage;
+        }
     }
 }
