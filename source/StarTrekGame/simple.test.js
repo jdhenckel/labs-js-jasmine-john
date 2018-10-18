@@ -34,4 +34,8 @@ describe('shield', function() {
         expect(shield.energyLevel).toBe(0);
     });
 
+    it('shield depletes on hit', function() {
+        shield.takesHit(100);
+        expect(shield.energyLevel).toBe(8901);
+    })
 });

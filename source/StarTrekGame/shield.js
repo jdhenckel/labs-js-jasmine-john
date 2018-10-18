@@ -19,4 +19,8 @@ class Shield {
     transferEnergy(energyToTransfer) {
         this._energyLevel = Math.max(0, Math.min(this._energyLevel + energyToTransfer, 10000));
     }
+
+    takesHit(damage) {
+        this._energyLevel -= damage;
+    }
 }
