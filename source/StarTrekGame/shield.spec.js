@@ -1,3 +1,4 @@
+
 describe('shield', function() {
     let shield;
 
@@ -34,10 +35,10 @@ describe('shield', function() {
         expect(shield.energyLevel).toBe(0);
     });
 
-    it('selects a random subsystem from an array of subsystems', function()
-    {
-        expect(shield._subSystems).toContain(shield.randomSubsystem());
-    });
+    // it('selects a random subsystem from an array of subsystems', function()
+    // {
+    //     expect(shield._subSystems).toContain(shield.randomSubsystem());
+    // });
 
     it('shield depletes on hit', function() {
         shield.beRaised();
@@ -49,6 +50,19 @@ describe('shield', function() {
     it('shield destroyed on hit', function() {
         shield.beRaised();
         shield.takesHit(9002);
+        expect(shield.energyLevel).toBe(0);
+        expect(shield.isUp).toBe(false);
+    })
+
+    it('take damage if hit and the shield is not up', () => {
+        var remaining = shield.takesHit(9002);
+        expect(remaining).toBe(9002);
+    })
+
+    it('take damage if hit and the shield is up', () => {
+        shield.beRaised();
+        var remaining = shield.takesHit(9101);
+        expect(remaining).toBe(100);
         expect(shield.energyLevel).toBe(0);
         expect(shield.isUp).toBe(false);
     })
