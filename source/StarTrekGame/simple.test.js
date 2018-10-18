@@ -42,4 +42,8 @@ describe('shield', function() {
         expect(shield._subSystems).toContain(shield.randomSubsystem());
     });
 
+    it('shield depletes on hit', function() {
+        shield.takesHit(100);
+        expect(shield.energyLevel).toBe(8901);
+    })
 });

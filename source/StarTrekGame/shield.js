@@ -27,4 +27,7 @@ class Shield {
         return this._subSystems[randomNumber];
     }
 
+    takesHit(damage) {
+        this._energyLevel -= damage;
+    }
 }
