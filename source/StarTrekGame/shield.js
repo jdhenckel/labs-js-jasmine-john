@@ -1,5 +1,7 @@
 class Shield {
+
     constructor() {
+        this._subSystems = ['engine', 'weapons', 'shield'];
         this._isUp = false;
         this._energyLevel = 9001;
     }
@@ -19,4 +21,10 @@ class Shield {
     transferEnergy(energyToTransfer) {
         this._energyLevel = Math.max(0, Math.min(this._energyLevel + energyToTransfer, 10000));
     }
+
+    randomSubsystem() {
+        let randomNumber = Math.floor(Math.random() * this._subSystems.length);
+        return this._subSystems[randomNumber];
+    }
+
 }
